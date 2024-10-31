@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Metadata -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Styles -->
+    <style>
+      .coin-marquee-item-name,
+      .coin-marquee-item-price {
+        color: white;
+      }
+
+      .coin-marquee-header {
+        display: none;
+      }
+
+      .coin-marquee-container {
+        width: 100% !important;
+      }
+    </style>
+
+    <!-- Title -->
+    <title>BoBi</title>
+  </head>
+  <body>
+    <!-- Coinmarketcap widget -->
+    <div
+      id="coinmarketcap-widget-marquee"
+      coins="1,1027,825,1839,5426,2,74,24478,5805,11841,2010,11419"
+      currency="USD"
+      theme="dark"
+      transparent="false"
+      show-symbol-logo="true"
+    ></div>
+
+    <!-- TradingView Widget -->
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+
+      <script
+        type="text/javascript"
+        src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+        async
+      >
+          {
+          "symbols": [
+            {
+              "description": "",
+              "proName": "NASDAQ:NVDA"
+            },
+            {
+              "description": "",
+              "proName": "NASDAQ:TSLA"
+            },
+            {
+              "description": "",
+              "proName": "NASDAQ:AAPL"
+            },
+            {
+              "description": "",
+              "proName": "NASDAQ:AMD"
+            },
+            {
+              "description": "",
+              "proName": "NASDAQ:AMZN"
+            },
+            {
+              "description": "",
+              "proName": "NASDAQ:MSFT"
+            },
+            {
+              "description": "",
+              "proName": "NASDAQ:META"
+            },
+            {
+              "description": "",
+              "proName": "NYSE:GME"
+            },
+            {
+              "description": "",
+              "proName": "NASDAQ:COIN"
+            },
+            {
+              "description": "",
+              "proName": "NASDAQ:NFLX"
+            },
+            {
+              "description": "",
+              "proName": "NYSE:DELL"
+            },
+            {
+              "description": "",
+              "proName": "NASDAQ:GOOGL"
+            },
+            {
+              "description": "",
+              "proName": "NASDAQ:SMCI"
+            },
+            {
+              "description": "",
+              "proName": "NYSE:CRM"
+            },
+            {
+              "description": "",
+              "proName": "NYSE:PLTR"
+            },
+            {
+              "description": "",
+              "proName": "NASDAQ:MARA"
+            }
+          ],
+          "showSymbolLogo": true,
+          "isTransparent": false,
+          "displayMode": "adaptive",
+          "colorTheme": "dark",
+          "locale": "en"
+        }
+      </script>
+    </div>
+
+    <!-- Root -->
+    <!-- <noscript>You need to enable JavaScript to run this app.</noscript> -->
+    <div id="root"></div>
+
+    <!-- Scripts -->
+    <script>
+      window.Browser = {
+        T: () => {},
+      };
+    </script>
+
+    <script
+      type="text/javascript"
+      src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"
+    ></script>
+  </body>
+</html>
