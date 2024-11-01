@@ -56,7 +56,6 @@ li {
 } */
 
 body {
-  padding-bottom: 50px;
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -111,7 +110,7 @@ main {
 }
 
 main .container {
-  height: 100%;
+  padding-bottom: 50px;
   display: grid;
   grid-template-rows: auto 1fr;
   position: relative;
@@ -616,9 +615,13 @@ body.dark .top .set.active .more {
   font-weight: 600;
 }
 footer{
-  position: fixed;
-  bottom: 50px;
-  left: 50px;
+  display: flex;
+  padding: 0 0 50px 50px;
+}
+@media screen and (max-width: 480px){
+  footer{
+    padding: 0 0 10px 10px;
+  }
 }
 .logo-insta{
   padding: 5px;

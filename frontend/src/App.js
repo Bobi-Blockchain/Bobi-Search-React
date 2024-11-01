@@ -13,7 +13,7 @@ export default function App() {
     };
     const fetchLiveCount = async () => {
         try {
-            const response = await fetch("/database/api/count");
+            const response = await fetch("/api/count");
             const data = await response.json();
             setLiveCount(data.value);
         } catch (error) {
