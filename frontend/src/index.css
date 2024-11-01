@@ -106,7 +106,6 @@ section {
 
 main {
   position: relative;
-  overflow: hidden;
 }
 
 main .container {
@@ -559,18 +558,18 @@ body.dark .top .set.active .more {
     grid-template-columns: 1fr;
   }
 }
-.unstyled-link{
+.unstyled-link {
   all: unset;
   display: block;
   cursor: pointer;
   overflow-wrap: anywhere;
 }
-.result-header{
+.result-header {
   display: flex;
   gap: 10px;
   align-items: start;
 }
-.result-description{
+.result-description {
   font-size: 0.9rem;
   color: var(--grey);
   margin-top: 5px;
@@ -580,55 +579,55 @@ body.dark .top .set.active .more {
   font-size: 0.9rem;
   margin-top: 5px;
 }
-.result-profile-name{
+.result-profile-name {
   font-size: 1rem;
   font-weight: 600;
 }
-.result-profile-url{
+.result-profile-url {
   font-size: 0.8rem;
   color: var(--grey);
   margin-top: 3px;
 }
-.results{
+.results {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 50px;
   margin-top: 50px;
 }
-.p-50{
+.p-50 {
   padding: 50px;
 }
-.search-div{
+.search-div {
   display: flex;
   gap: 20px;
   align-items: center;
 }
-#live-count{
+#live-count {
   font-size: 1.2rem;
   color: var(--grey);
   border: 2px solid var(--grey);
   padding: 5px 10px;
   border-radius: 5px;
 }
-.count{
+.count {
   font-size: 1.2rem;
   font-weight: 600;
 }
-footer{
+footer {
   display: flex;
   padding: 0 0 50px 50px;
 }
-@media screen and (max-width: 480px){
-  footer{
+@media screen and (max-width: 480px) {
+  footer {
     padding: 0 0 10px 10px;
   }
 }
-.logo-insta{
+.logo-insta {
   padding: 5px;
   width: 36px;
   height: 36px;
 }
-.logo-x{
+.logo-x {
   width: 50px;
   height: 50px;
 }
