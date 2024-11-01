@@ -375,7 +375,9 @@ button.ico {
   padding: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 20px -5px;
 }
-
+.set {
+  flex: 1;
+}
 .cls {
   transition: all 0.3s ease 0s;
 }
@@ -608,6 +610,7 @@ body.dark .top .set.active .more {
   border: 2px solid var(--grey);
   padding: 5px 10px;
   border-radius: 5px;
+  width: fit-content;
 }
 .count {
   font-size: 1.2rem;
@@ -630,4 +633,13 @@ footer {
 .logo-x {
   width: 50px;
   height: 50px;
+}
+.home-button {
+  background-color: #29dc47;
+}
+.switch-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
 }

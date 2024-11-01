@@ -29,6 +29,12 @@ export default function App() {
 
         return () => clearInterval(interval); // Cleanup interval on component unmount
     }, []);
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch();
+        }
+    };
+
     return (
         <>
             <main>
@@ -40,6 +46,7 @@ export default function App() {
 
                 <div className="container">
                     <Nav
+                        liveCount={liveCount}
                         slideBlockIsActive={slideBlockIsActive}
                         setSlideBlockIsActive={setSlideBlockIsActive}
                     />
@@ -53,6 +60,7 @@ export default function App() {
                                 value={query}
                                 onChange={updateQuery}
                                 placeholder="Just start typing"
+                                onKeyDown={handleKeyPress}
                             />
 
                             <button onClick={handleSearch} className="ico">
@@ -87,11 +95,6 @@ export default function App() {
                     </div>
                 </div>
             </main>
-            <footer>
-                <div id="live-count">
-                    Live Visits: <span id="count">{liveCount}</span>
-                </div>
-            </footer>
         </>
     );
 }

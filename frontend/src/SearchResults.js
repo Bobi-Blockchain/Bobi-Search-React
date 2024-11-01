@@ -3,17 +3,19 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const SearchResults = () => {
     const location = useLocation();
-    const [query, setQuery] = useState(new URLSearchParams(location.search).get("q") || "");
+    const [query, setQuery] = useState(
+        new URLSearchParams(location.search).get("q") || ""
+    );
     const updateQuery = (e) => setQuery(e.target.value);
     const [results, setResults] = useState([]);
 
     const incrementLiveCount = async () => {
         try {
-            await fetch('/api/increment', {
-                method: 'POST',
+            await fetch("/api/increment", {
+                method: "POST",
             });
         } catch (error) {
-            console.error('Error incrementing live count:', error);
+            console.error("Error incrementing live count:", error);
         }
     };
     const fetchData = async () => {
@@ -37,12 +39,17 @@ const SearchResults = () => {
     useEffect(() => {
         fetchData();
     }, []);
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            fetchData();
+        }
+    };
     const navigate = useNavigate();
 
     return (
         <div className="p-50">
             <div className="search-div">
-                <form action="/search" method="GET" className="search-bar">
+                <div className="search-bar">
                     <button type="button">Connect</button>
                     <input
                         className="search-input"
@@ -51,8 +58,13 @@ const SearchResults = () => {
                         placeholder="Just start typing"
                         value={query}
                         onChange={updateQuery}
+                        onKeyDown={handleKeyPress}
                     />
-                    <button type="button" onClick={fetchData} className="ico search-button">
+                    <button
+                        type="button"
+                        onClick={fetchData}
+                        className="ico search-button"
+                    >
                         <svg
                             width="23"
                             height="23"
@@ -66,7 +78,7 @@ const SearchResults = () => {
                             />
                         </svg>
                     </button>
-                </form>
+                </div>
                 <button
                     type="button"
                     className="ico home-button"
@@ -108,7 +120,11 @@ const SearchResults = () => {
                         </div>
                         <div className="result-description">
                             <span>{result.age} - </span>
-                            <p dangerouslySetInnerHTML={{__html:result.description}}></p>
+                            <p
+                                dangerouslySetInnerHTML={{
+                                    __html: result.description,
+                                }}
+                            ></p>
                         </div>
                     </div>
                 ))}
