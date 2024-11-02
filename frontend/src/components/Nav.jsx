@@ -11,7 +11,7 @@ export default function Nav({
         <div className="top">
             <div className="switch-wrapper">
                 <div id="live-count">
-                    Live Visits: <span id="count">{liveCount}</span>
+                    <p>Live Visits</p><p className="count">{liveCount}</p>
                 </div>
                 <label className="switch">
                     <input

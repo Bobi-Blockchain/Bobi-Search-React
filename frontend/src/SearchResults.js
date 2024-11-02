@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Nav from "./components/Nav";
 
 const SearchResults = () => {
+    const [slideBlockIsActive, setSlideBlockIsActive] = useState(false);
     const location = useLocation();
+    const [liveCount, setLiveCount] = useState(0);
     const [query, setQuery] = useState(
         new URLSearchParams(location.search).get("q") || ""
     );
     const updateQuery = (e) => setQuery(e.target.value);
-    const [results, setResults] = useState([]);
-
+    const [results, setResults] = useState(null);
+    const [loading, setLoading] = useState(false);
     const incrementLiveCount = async () => {
         try {
             await fetch("/api/increment", {
@@ -21,26 +24,47 @@ const SearchResults = () => {
     const fetchData = async () => {
         if (!query) return;
         try {
+            setLoading(true);
             const response = await fetch(`/api/search?q=${query}`, {
                 method: "GET",
             });
 
             if (!response.ok) {
+                setLoading(false);
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
             const data = await response.json();
+            setLoading(false);
             setResults(data);
             await incrementLiveCount();
         } catch (error) {
+            setLoading(false);
             console.error("Error fetching data:", error);
+        }
+    };
+    const fetchLiveCount = async () => {
+        try {
+            const response = await fetch("/api/count");
+            const data = await response.json();
+            setLiveCount(data.value);
+        } catch (error) {
+            console.error("Error fetching live count:", error);
         }
     };
     useEffect(() => {
         fetchData();
+        fetchLiveCount(); // Fetch initially when component mounts
+
+        const interval = setInterval(() => {
+            fetchLiveCount();
+        }, 5000); // Fetch every 5 seconds
+
+        return () => clearInterval(interval); // Cleanup interval on component unmount
     }, []);
+
     const handleKeyPress = (e) => {
-        if (e.key === 'Enter') {
+        if (e.key === "Enter") {
             fetchData();
         }
     };
@@ -48,6 +72,12 @@ const SearchResults = () => {
 
     return (
         <div className="p-50">
+            <Nav
+                liveCount={liveCount}
+                slideBlockIsActive={slideBlockIsActive}
+                setSlideBlockIsActive={setSlideBlockIsActive}
+            />
+
             <div className="search-div">
                 <div className="search-bar">
                     <button type="button">Connect</button>
@@ -98,37 +128,45 @@ const SearchResults = () => {
                     </svg>
                 </button>
             </div>
-            <div className="results">
-                {results?.web?.results?.map((result, index) => (
-                    <div className="result" key={index}>
-                        <div className="result-header">
-                            <img src={result.profile.img} alt="img" />
-                            <div>
-                                <a
-                                    href={result.profile.url}
-                                    className="result-profile-name unstyled-link"
-                                >
-                                    {result.profile.name}
-                                </a>
-                                <a
-                                    href={result.profile.url}
-                                    className="result-profile-url unstyled-link"
-                                >
-                                    {result.url}
-                                </a>
+            {!loading ? (
+                <div className="results">
+                    {results?.web?.results?.length > 0 ? (
+                        results.web.results.map((result, index) => (
+                            <div className="result" key={index}>
+                                <div className="result-header">
+                                    <img src={result.profile.img} alt="img" />
+                                    <div>
+                                        <a
+                                            href={result.profile.url}
+                                            className="result-profile-name unstyled-link"
+                                        >
+                                            {result.profile.name}
+                                        </a>
+                                        <a
+                                            href={result.profile.url}
+                                            className="result-profile-url unstyled-link"
+                                        >
+                                            {result.url}
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="result-description">
+                                    <span>{result.age} - </span>
+                                    <p
+                                        dangerouslySetInnerHTML={{
+                                            __html: result.description,
+                                        }}
+                                    ></p>
+                                </div>
                             </div>
-                        </div>
-                        <div className="result-description">
-                            <span>{result.age} - </span>
-                            <p
-                                dangerouslySetInnerHTML={{
-                                    __html: result.description,
-                                }}
-                            ></p>
-                        </div>
-                    </div>
-                ))}
-            </div>
+                        ))
+                    ) : (
+                        <div className="no-results">No results found</div>
+                    )}
+                </div>
+            ) : (
+                <div class="loader"></div>
+            )}
         </div>
     );
 };
