@@ -1,28 +1,35 @@
 import { useState } from "react";
 
-export default function Nav({ slideBlockIsActive, setSlideBlockIsActive }) {
+export default function Nav({
+    slideBlockIsActive,
+    setSlideBlockIsActive,
+    liveCount,
+}) {
     const [isActive, setIsActive] = useState(false);
 
     return (
         <div className="top">
-            <label className="switch">
-                <input
-                    onChange={() => {
-                        setSlideBlockIsActive(!slideBlockIsActive);
-
-                        if (slideBlockIsActive) {
-                            document.body.classList.remove("dark");
-                        } else {
-                            document.body.classList.add("dark");
-                        }
-                    }}
-                    id="toggle"
-                    type="checkbox"
-                    className="darkToggleInput"
-                />
-
-                <span className="slider"></span>
-            </label>
+            <div className="switch-wrapper">
+                <div id="live-count">
+                    Live Visits: <span id="count">{liveCount}</span>
+                </div>
+                <label className="switch">
+                    <input
+                        onChange={() => {
+                            setSlideBlockIsActive(!slideBlockIsActive);
+                            if (slideBlockIsActive) {
+                                document.body.classList.remove("dark");
+                            } else {
+                                document.body.classList.add("dark");
+                            }
+                        }}
+                        id="toggle"
+                        type="checkbox"
+                        className="darkToggleInput"
+                    />
+                    <span className="slider"></span>
+                </label>
+            </div>
 
             <div className="logo">
                 <svg
@@ -185,7 +192,10 @@ export default function Nav({ slideBlockIsActive, setSlideBlockIsActive }) {
                         </svg>
                     </div>
 
-                    <a className="ico" href="https://instagram.com/bobiblockchain">
+                    <a
+                        className="ico"
+                        href="https://instagram.com/bobiblockchain"
+                    >
                         <img
                             className="logo-insta"
                             src="/instagram.svg"
