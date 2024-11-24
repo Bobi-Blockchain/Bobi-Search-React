@@ -238,14 +238,12 @@ export default function App() {
                                     />
                                 </div>
                             )}
-                            {isDarkMode && (
-                                <div id="integrated-terminal">
-                                    <iframe
-                                        src="https://www.bobiblockchain.com/"
-                                        title="Integrated Terminal"
-                                    ></iframe>
-                                </div>
-                            )}
+                            <div id="integrated-terminal">
+                                <iframe
+                                    src="https://www.bobiblockchain.com/"
+                                    title="Integrated Terminal"
+                                ></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>

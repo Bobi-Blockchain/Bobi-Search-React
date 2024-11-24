@@ -555,6 +555,7 @@ body.dark .top .set.active .more {
   border: var(--border);
   background: #40404b;
   overflow: hidden;
+  min-height: 400px;
 }
 
 @media only screen and (max-width: 1024px) {
