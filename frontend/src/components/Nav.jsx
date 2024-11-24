@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Nav({
     slideBlockIsActive,
     setSlideBlockIsActive,
     liveCount,
+    setIsDarkMode = null,
 }) {
     const [isActive, setIsActive] = useState(false);
 
@@ -17,6 +18,9 @@ export default function Nav({
                     <input
                         onChange={() => {
                             setSlideBlockIsActive(!slideBlockIsActive);
+                            if(setIsDarkMode) {
+                                setIsDarkMode((prev) => !prev);
+                            }
                             if (slideBlockIsActive) {
                                 document.body.classList.remove("dark");
                             } else {
