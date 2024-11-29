@@ -240,7 +240,7 @@ export default function App() {
                             )}
                             <div id="integrated-terminal">
                                 <iframe
-                                    src="https://www.bobiblockchain.com/"
+                                    src="http://www.bobiscan.org/"
                                     title="Integrated Terminal"
                                 ></iframe>
                             </div>
