@@ -299,7 +299,7 @@ export default function App() {
                             
                             <div id="integrated-terminal">
                                 <iframe
-                                    src="https://www.bobiscan.org/"
+                                    src="https://coinmarketcap.com"
                                     title="Integrated Terminal"
                                 ></iframe>
                             </div>
