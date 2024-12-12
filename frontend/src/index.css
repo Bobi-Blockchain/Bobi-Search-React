@@ -393,7 +393,9 @@ button.ico {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1rem; 
+  padding-top: 4rem;
+  align-self: center;
 }
 
 .buttons button:nth-child(2) {

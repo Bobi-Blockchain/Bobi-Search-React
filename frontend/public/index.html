@@ -34,7 +34,6 @@
       transparent="false"
       show-symbol-logo="true"
     ></div>
-
     <!-- TradingView Widget -->
     <div class="tradingview-widget-container">
       <div class="tradingview-widget-container__widget"></div>
@@ -119,7 +118,6 @@
         }
       </script>
     </div>
-
     <!-- Root -->
     <!-- <noscript>You need to enable JavaScript to run this app.</noscript> -->
     <div id="root"></div>
@@ -129,6 +127,9 @@
       window.Browser = {
         T: () => {},
       };
+            const script = document.createElement('script');
+            script.src = "https://widgets.coingecko.com/gecko-coin-price-chart-widget.js";
+            document.body.appendChild(script);
     </script>
 
     <script
