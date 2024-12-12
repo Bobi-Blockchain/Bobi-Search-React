@@ -31,6 +31,7 @@ const SearchResults = () => {
 
             if (!response.ok) {
                 setLoading(false);
+                setResults([]);
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
 
@@ -40,6 +41,7 @@ const SearchResults = () => {
             await incrementLiveCount();
         } catch (error) {
             setLoading(false);
+            setResults([]);
             console.error("Error fetching data:", error);
         }
     };
@@ -160,8 +162,14 @@ const SearchResults = () => {
                                 </div>
                             </div>
                         ))
+                    ) : results !== null ? (
+                        <div className="no-results">
+                            No results found
+                        </div>
                     ) : (
-                        <div className="no-results">No results found</div>
+                        <div className="no-results">
+                            Search Something...
+                        </div>
                     )}
                 </div>
             ) : (
