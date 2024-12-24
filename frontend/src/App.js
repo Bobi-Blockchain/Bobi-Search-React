@@ -14,6 +14,8 @@ import "@uniswap/widgets/fonts.css";
 import Nav from "./components/Nav";
 import Wallet from "./components/Wallet";
 import { useNavigate } from "react-router-dom";
+import TradingView from "./components/TradingView";
+import Chatbot from "./components/Chatbot";
 
 const projectId = "f053376d57580a3e6a1e82b2d7909004";
 
@@ -426,6 +428,15 @@ export default function App() {
                                     initial-currency="usd"
                                     height="200"
                                 ></gecko-coin-price-chart-widget>
+                            </div>
+                            <div className="integrated-terminal">
+                                <TradingView/>
+                            </div>
+                            <div className="integrated-terminal">
+                            <iframe width="360" height="440"  src="https://rss.app/embed/v1/carousel/tb3pqaLWSfshBM1K" frameborder="0"></iframe>
+                            </div>
+                            <div className="integrated-terminal">
+                                <Chatbot/>
                             </div>
 
                             <div className="buttons">

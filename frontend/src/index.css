@@ -514,14 +514,12 @@ body.dark .top .set.active .more {
         padding: 0;
     }
 }
-
 /* Uniswap widget */
 .widgets-wrapper {
     width: 100%;
     /* max-width: 1900px; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 400px 400px;
     gap: 20px;
     row-gap: 50px;
 }
@@ -558,6 +556,48 @@ body.dark .top .set.active .more {
     background: #f3f3f3;
     overflow: hidden;
     min-height: 400px;
+    max-height: 400px;
+}
+.chatbot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.prompt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    width: 100%;
+    text-align: left;
+}
+.responses {
+    display: flex;
+    flex-direction: column;
+    max-height: 330px;
+    width: 100%;
+    overflow-y: auto;
+}
+.response {
+    margin: 10px;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    width: calc(100% - 20px);
+    text-align: left;
+}
+.response.even{
+    background-color: #f3f3f3;
+    text-align: right;
+}
+
+.prompt input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 @media only screen and (max-width: 1024px) {

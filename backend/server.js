@@ -3,7 +3,6 @@ const path = require("path");
 const { Pool } = require("pg");
 const dotenv = require("dotenv");
 const cors = require("cors");
-
 dotenv.config();
 
 const app = express();
@@ -86,6 +85,41 @@ app.get("/api/search", async (req, res) => {
     } catch (error) {
         console.error("Error fetching data from Brave API:", error);
         res.status(500).json({ error: "Internal server error" });
+    }
+});
+
+
+app.post('/api/chat', async (req, res) => {
+    const { message } = req.body;
+    const key = process.env.OPENAI_API_KEY;
+
+    try {
+        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${key}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                model: 'gpt-3.5-turbo',
+                messages: [
+                    { role: 'system', content: 'You are a helpful assistant.' },
+                    { role: 'user', content: message }
+                ],
+                max_tokens: 150,
+                temperature: 0.7
+            })
+        });
+
+        const data = await response.json();
+        if (data.choices && data.choices.length > 0) {
+            res.json({ reply: data.choices[0].message.content });
+        } else {
+            res.status(500).send('No response from OpenAI');
+        }
+    } catch (error) {
+        console.error('Error communicating with OpenAI:', error);
+        res.status(500).send('Error communicating with OpenAI');
     }
 });
 
