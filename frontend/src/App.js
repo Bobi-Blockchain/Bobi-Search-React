@@ -224,7 +224,78 @@ export default function App() {
                         </div>
 
                         <div className="widgets-wrapper">
-                        <div className="integrated-terminal search-terminal">
+
+                        <div className="integrated-terminal">
+                                <Chatbot/>
+                            </div>
+                            
+                        
+
+                            <div className="integrated-terminal">
+                                <MoonPaySellWidget
+                                    variant="embedded"
+                                    baseCurrencyCode="eth"
+                                    baseCurrencyAmount="0.1"
+                                    quoteCurrencyCode="usd"
+                                    visible
+                                />
+                            </div>
+
+
+                            {isConnected && provider ? (
+                                <div className="Uniswap">
+                                    <SwapWidget
+                                        provider={provider}
+                                        onConnectWalletClick={(e) => {
+                                            open();
+                                            e.preventDefault();
+                                        }}
+                                        jsonRpcUrlMap={{
+                                            1: [
+                                                "https://mainnet.infura.io/v3/7da323a8f4a540d2a1cb93d8465b73f7",
+                                            ],
+                                        }}
+                                        defaultChainId={1}
+                                        tokenList={TOKEN_LIST}
+                                        routerUrl="https://api.uniswap.org/v1/"
+                                    />
+                                </div>
+                            ) : (
+                                <div className="Uniswap wallet-not-connected">
+                                    <SwapWidget
+                                        onConnectWalletClick={(e) => {
+                                            open();
+                                            e.preventDefault();
+                                        }}
+                                        jsonRpcUrlMap={{
+                                            1: [
+                                                "https://mainnet.infura.io/v3/7da323a8f4a540d2a1cb93d8465b73f7",
+                                            ],
+                                        }}
+                                        defaultChainId={1}
+                                        tokenList={TOKEN_LIST}
+                                        routerUrl="https://api.uniswap.org/v1/"
+                                    />
+                                </div>
+                            )}
+
+
+                            <div className="integrated-terminal">
+                                <iframe
+                                    src="https://www.bobiscan.org/"
+                                    title="Integrated Terminal"
+                                ></iframe>
+                            </div>
+
+                            
+                            <div className="integrated-terminal">
+                                <iframe
+                                    src="https://www.Cryptojobslist.com/"
+                                    title="Integrated Terminal"
+                                ></iframe>
+                            </div>
+
+                            <div className="integrated-terminal search-terminal">
                                 <div className="search-bar search-bar-embedded">
                                     <input
                                         type="text"
@@ -322,70 +393,7 @@ export default function App() {
                                     <div class="loader"></div>
                                 )}
                             </div>
-
-                            <div className="integrated-terminal">
-                                <MoonPaySellWidget
-                                    variant="embedded"
-                                    baseCurrencyCode="eth"
-                                    baseCurrencyAmount="0.1"
-                                    quoteCurrencyCode="usd"
-                                    visible
-                                />
-                            </div>
-
-
-                            {isConnected && provider ? (
-                                <div className="Uniswap">
-                                    <SwapWidget
-                                        provider={provider}
-                                        onConnectWalletClick={(e) => {
-                                            open();
-                                            e.preventDefault();
-                                        }}
-                                        jsonRpcUrlMap={{
-                                            1: [
-                                                "https://mainnet.infura.io/v3/7da323a8f4a540d2a1cb93d8465b73f7",
-                                            ],
-                                        }}
-                                        defaultChainId={1}
-                                        tokenList={TOKEN_LIST}
-                                        routerUrl="https://api.uniswap.org/v1/"
-                                    />
-                                </div>
-                            ) : (
-                                <div className="Uniswap wallet-not-connected">
-                                    <SwapWidget
-                                        onConnectWalletClick={(e) => {
-                                            open();
-                                            e.preventDefault();
-                                        }}
-                                        jsonRpcUrlMap={{
-                                            1: [
-                                                "https://mainnet.infura.io/v3/7da323a8f4a540d2a1cb93d8465b73f7",
-                                            ],
-                                        }}
-                                        defaultChainId={1}
-                                        tokenList={TOKEN_LIST}
-                                        routerUrl="https://api.uniswap.org/v1/"
-                                    />
-                                </div>
-                            )}
-
-
-                            <div className="integrated-terminal">
-                                <iframe
-                                    src="https://www.bobiscan.org/"
-                                    title="Integrated Terminal"
-                                ></iframe>
-                            </div>
-
                             
-                            <div className="integrated-terminal">
-                                <iframe
-                                    src="https://www.Cryptojobslist.com/"
-                                    title="Integrated Terminal"
-                                ></iframe>
-                            </div>
                             <div className="integrated-terminal charts-terminal">
                                 <gecko-coin-price-chart-widget
                                     locale="en"
@@ -429,15 +437,15 @@ export default function App() {
                                     height="200"
                                 ></gecko-coin-price-chart-widget>
                             </div>
+
                             <div className="integrated-terminal">
                                 <TradingView/>
                             </div>
+
                             <div className="integrated-terminal">
                             <iframe width="360" height="440"  src="https://rss.app/embed/v1/carousel/tb3pqaLWSfshBM1K" frameborder="0"></iframe>
                             </div>
-                            <div className="integrated-terminal">
-                                <Chatbot/>
-                            </div>
+                            
 
                             <div className="buttons">
                     
