@@ -225,22 +225,13 @@ export default function App() {
 
                         <div className="widgets-wrapper">
 
-                        <div className="integrated-terminal">
+                            <div className="integrated-terminal">
                                 <Chatbot/>
                             </div>
                             
-                        
-
                             <div className="integrated-terminal">
-                                <MoonPaySellWidget
-                                    variant="embedded"
-                                    baseCurrencyCode="eth"
-                                    baseCurrencyAmount="0.1"
-                                    quoteCurrencyCode="usd"
-                                    visible
-                                />
+                                <TradingView/>
                             </div>
-
 
                             {isConnected && provider ? (
                                 <div className="Uniswap">
@@ -280,22 +271,7 @@ export default function App() {
                             )}
 
 
-                            <div className="integrated-terminal">
-                                <iframe
-                                    src="https://www.bobiscan.org/"
-                                    title="Integrated Terminal"
-                                ></iframe>
-                            </div>
-
-                            
-                            <div className="integrated-terminal">
-                                <iframe
-                                    src="https://www.Cryptojobslist.com/"
-                                    title="Integrated Terminal"
-                                ></iframe>
-                            </div>
-
-                            <div className="integrated-terminal search-terminal">
+<div className="integrated-terminal search-terminal">
                                 <div className="search-bar search-bar-embedded">
                                     <input
                                         type="text"
@@ -393,7 +369,15 @@ export default function App() {
                                     <div class="loader"></div>
                                 )}
                             </div>
-                            
+
+
+                            <div className="integrated-terminal">
+                                <iframe
+                                    src="https://www.bobiscan.org/"
+                                    title="Integrated Terminal"
+                                ></iframe>
+                            </div>
+
                             <div className="integrated-terminal charts-terminal">
                                 <gecko-coin-price-chart-widget
                                     locale="en"
@@ -439,11 +423,24 @@ export default function App() {
                             </div>
 
                             <div className="integrated-terminal">
-                                <TradingView/>
+                            <iframe width="360" height="440"  src="https://rss.app/embed/v1/carousel/tb3pqaLWSfshBM1K" frameborder="0"></iframe>
                             </div>
 
                             <div className="integrated-terminal">
-                            <iframe width="360" height="440"  src="https://rss.app/embed/v1/carousel/tb3pqaLWSfshBM1K" frameborder="0"></iframe>
+                                <MoonPaySellWidget
+                                    variant="embedded"
+                                    baseCurrencyCode="eth"
+                                    baseCurrencyAmount="0.1"
+                                    quoteCurrencyCode="usd"
+                                    visible
+                                />
+                            </div>
+
+                            <div className="integrated-terminal">
+                                <iframe
+                                    src="https://www.Cryptojobslist.com/"
+                                    title="Integrated Terminal"
+                                ></iframe>
                             </div>
                             
 

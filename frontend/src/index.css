@@ -165,6 +165,16 @@ input {
 .logo svg {
     width: unset;
     height: 100px;
+    animation: rotateLogo 15s linear infinite;
+}
+
+@keyframes rotateLogo {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .search-bar {

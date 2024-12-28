@@ -38,7 +38,7 @@ function Chatbot() {
                     value={input}
                     onKeyPress={handleKeyPress}
                     onChange={(e) => setInput(e.target.value)}
-                    placeholder="Type your message here..."
+                    placeholder="BobiGPT"
                 />
                 <button onClick={handleSend}>{buttonText}</button>
             </div>
