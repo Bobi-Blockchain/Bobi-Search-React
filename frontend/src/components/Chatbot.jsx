@@ -18,7 +18,7 @@ function Chatbot() {
             console.error("Error sending message:", error);
         }
         setInput("");
-        setButtonText("bobigpt");
+        setButtonText("Send");
     };
     const handleKeyPress = (e) => {
         if (e.key === "Enter") {

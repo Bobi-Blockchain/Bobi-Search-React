@@ -225,12 +225,13 @@ export default function App() {
 
                         <div className="widgets-wrapper">
 
-                            <div className="integrated-terminal">
-                                <Chatbot/>
+                            <div className="integrated-terminal chatbot-terminal">
+                                <img src="/bobigpt.jpg" alt="BoBi GPT" />
+                                <Chatbot />
                             </div>
-                            
+
                             <div className="integrated-terminal">
-                                <TradingView/>
+                                <TradingView />
                             </div>
 
                             {isConnected && provider ? (
@@ -270,107 +271,107 @@ export default function App() {
                                 </div>
                             )}
 
-
-<div className="integrated-terminal search-terminal">
-                                <div className="search-bar search-bar-embedded">
-                                    <input
-                                        type="text"
-                                        value={queryEmbed}
-                                        onChange={updateQueryEmbed}
-                                        placeholder="Just start typing"
-                                        onKeyDown={handleKeyPressEmbed}
-                                    />
-
-                                    <button onClick={fetchData} className="ico">
-                                        <svg
-                                            width="23"
-                                            height="23"
-                                            viewBox="0 0 23 23"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                        >
-                                            <path
-                                                d="M18.5304 17.4698C18.2375 17.1769 17.7626 17.1769 17.4697 17.4698C17.1768 17.7626 17.1768 18.2375 17.4697 18.5304L18.5304 17.4698ZM21.4696 22.5304C21.7625 22.8233 22.2374 22.8233 22.5303 22.5304C22.8232 22.2375 22.8232 21.7626 22.5303 21.4697L21.4696 22.5304ZM17.4697 18.5304L21.4696 22.5304L22.5303 21.4697L18.5304 17.4698L17.4697 18.5304ZM10 18.25C5.44365 18.25 1.75 14.5563 1.75 10H0.25C0.25 15.3848 4.61522 19.75 10 19.75V18.25ZM18.25 10C18.25 14.5563 14.5563 18.25 10 18.25V19.75C15.3848 19.75 19.75 15.3848 19.75 10H18.25ZM10 1.75C14.5563 1.75 18.25 5.44365 18.25 10H19.75C19.75 4.61522 15.3848 0.25 10 0.25V1.75ZM10 0.25C4.61522 0.25 0.25 4.61522 0.25 10H1.75C1.75 5.44365 5.44365 1.75 10 1.75V0.25Z"
-                                                fill="white"
-                                            />
-                                        </svg>
-                                    </button>
-                                </div>
-
-                                {!loading ? (
-                                    <div className="results results-embedded">
-                                        {results?.web?.results?.length > 0 ? (
-                                            results.web.results.map(
-                                                (result, index) => (
-                                                    <div
-                                                        className="result"
-                                                        key={index}
-                                                    >
-                                                        <div className="result-header">
-                                                            <img
-                                                                src={
-                                                                    result
-                                                                        .profile
-                                                                        .img
-                                                                }
-                                                                alt="img"
-                                                            />
-                                                            <div>
-                                                                <a
-                                                                    href={
+                            <div className="integrated-terminal search-terminal">
+                                <img src="/search.png" alt="BoBi GPT" className="search-bg" />
+                                <div className="search-wrapper-div">
+                                    <div className="search-bar search-bar-embedded">
+                                        <input
+                                            type="text"
+                                            value={queryEmbed}
+                                            onChange={updateQueryEmbed}
+                                            placeholder="Just start typing"
+                                            onKeyDown={handleKeyPressEmbed}
+                                        />
+                                        <button onClick={fetchData} className="ico">
+                                            <svg
+                                                width="23"
+                                                height="23"
+                                                viewBox="0 0 23 23"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path
+                                                    d="M18.5304 17.4698C18.2375 17.1769 17.7626 17.1769 17.4697 17.4698C17.1768 17.7626 17.1768 18.2375 17.4697 18.5304L18.5304 17.4698ZM21.4696 22.5304C21.7625 22.8233 22.2374 22.8233 22.5303 22.5304C22.8232 22.2375 22.8232 21.7626 22.5303 21.4697L21.4696 22.5304ZM17.4697 18.5304L21.4696 22.5304L22.5303 21.4697L18.5304 17.4698L17.4697 18.5304ZM10 18.25C5.44365 18.25 1.75 14.5563 1.75 10H0.25C0.25 15.3848 4.61522 19.75 10 19.75V18.25ZM18.25 10C18.25 14.5563 14.5563 18.25 10 18.25V19.75C15.3848 19.75 19.75 15.3848 19.75 10H18.25ZM10 1.75C14.5563 1.75 18.25 5.44365 18.25 10H19.75C19.75 4.61522 15.3848 0.25 10 0.25V1.75ZM10 0.25C4.61522 0.25 0.25 4.61522 0.25 10H1.75C1.75 5.44365 5.44365 1.75 10 1.75V0.25Z"
+                                                    fill="white"
+                                                />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    {!loading ? (
+                                        <div className="results results-embedded">
+                                            {results?.web?.results?.length > 0 ? (
+                                                results.web.results.map(
+                                                    (result, index) => (
+                                                        <div
+                                                            className="result"
+                                                            key={index}
+                                                        >
+                                                            <div className="result-header">
+                                                                <img
+                                                                    src={
                                                                         result
                                                                             .profile
-                                                                            .url
+                                                                            .img
                                                                     }
-                                                                    className="result-profile-name unstyled-link"
-                                                                >
-                                                                    {
-                                                                        result
-                                                                            .profile
-                                                                            .name
-                                                                    }
-                                                                </a>
-                                                                <a
-                                                                    href={
-                                                                        result
-                                                                            .profile
-                                                                            .url
-                                                                    }
-                                                                    className="result-profile-url unstyled-link"
-                                                                >
-                                                                    {result.url}
-                                                                </a>
+                                                                    alt="img"
+                                                                />
+                                                                <div>
+                                                                    <a
+                                                                        href={
+                                                                            result
+                                                                                .profile
+                                                                                .url
+                                                                        }
+                                                                        className="result-profile-name unstyled-link"
+                                                                    >
+                                                                        {
+                                                                            result
+                                                                                .profile
+                                                                                .name
+                                                                        }
+                                                                    </a>
+                                                                    <a
+                                                                        href={
+                                                                            result
+                                                                                .profile
+                                                                                .url
+                                                                        }
+                                                                        className="result-profile-url unstyled-link"
+                                                                    >
+                                                                        {result.url}
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <div className="result-description">
+                                                                <span>
+                                                                    {result.age} -{" "}
+                                                                </span>
+                                                                <p
+                                                                    dangerouslySetInnerHTML={{
+                                                                        __html: result.description,
+                                                                    }}
+                                                                ></p>
                                                             </div>
                                                         </div>
-                                                        <div className="result-description">
-                                                            <span>
-                                                                {result.age} -{" "}
-                                                            </span>
-                                                            <p
-                                                                dangerouslySetInnerHTML={{
-                                                                    __html: result.description,
-                                                                }}
-                                                            ></p>
-                                                        </div>
-                                                    </div>
+                                                    )
                                                 )
-                                            )
-                                        ) : results !== null ? (
-                                            <div className="no-results">
-                                                No results found
-                                            </div>
-                                        ) : (
-                                            <div className="no-results">
-                                                Search Something...
-                                            </div>
-                                        )}
-                                    </div>
-                                ) : (
-                                    <div class="loader"></div>
-                                )}
-                            </div>
+                                            ) : results !== null ? (
+                                                <div className="no-results" style={{ backgroundColor: "#ffffffc4", padding: "10px", borderRadius: "5px" }}>
+                                                    No results found
+                                                </div>
+                                            ) : (
+                                                <div className="no-results" style={{ backgroundColor: "#ffffffc4", padding: "10px", borderRadius: "5px" }}>
+                                                    Search Something...
+                                                </div>
+                                            )}
+                                        </div>
+                                    ) : (
+                                        <div class="loader"></div>
+                                    )}
+                                                                </div>
+                                </div>
 
-
+                                
                             <div className="integrated-terminal">
                                 <iframe
                                     src="https://www.bobiscan.org/"
@@ -402,28 +403,33 @@ export default function App() {
                                 <gecko-coin-price-chart-widget
                                     locale="en"
                                     outlined="true"
-                                    coin-id="gigachad-2"
+                                    coin-id="basic-attention-token"
                                     initial-currency="usd"
                                     height="200"
                                 ></gecko-coin-price-chart-widget>
                                 <gecko-coin-price-chart-widget
                                     locale="en"
                                     outlined="true"
-                                    coin-id="pepe"
+                                    coin-id="helium"
                                     initial-currency="usd"
                                     height="200"
                                 ></gecko-coin-price-chart-widget>
                                 <gecko-coin-price-chart-widget
                                     locale="en"
                                     outlined="true"
-                                    coin-id="fartcoin"
+                                    coin-id="binancecoin"
                                     initial-currency="usd"
                                     height="200"
                                 ></gecko-coin-price-chart-widget>
                             </div>
 
                             <div className="integrated-terminal">
-                            <iframe width="360" height="440"  src="https://rss.app/embed/v1/carousel/tb3pqaLWSfshBM1K" frameborder="0"></iframe>
+                                <iframe
+                                    width="360"
+                                    height="440"
+                                    src="https://rss.app/embed/v1/carousel/tb3pqaLWSfshBM1K"
+                                    frameborder="0"
+                                ></iframe>
                             </div>
 
                             <div className="integrated-terminal">
@@ -436,6 +442,7 @@ export default function App() {
                                 />
                             </div>
 
+
                             <div className="integrated-terminal">
                                 <iframe
                                     src="https://www.Cryptojobslist.com/"
@@ -445,8 +452,14 @@ export default function App() {
                             
 
                             <div className="buttons">
-                    
-                                <button onClick={() => window.location.href = 'mailto:build@bobi.io'}>Buy In</button>
+                                <button
+                                    onClick={() =>
+                                        (window.location.href =
+                                            "mailto:build@bobi.io")
+                                    }
+                                >
+                                    Buy In
+                                </button>
 
                                 <button
                                     onClick={() =>
