@@ -38,7 +38,7 @@ export default function Wallet({ provider, open, isConnected, address }) {
       }}
       className="connect-wallet-btn connect-wallet-state-btn"
     >
-      {isConnected ? text : "Connect"}
+      {isConnected ? text : "MetaMask"}
     </button>
   );
 }
