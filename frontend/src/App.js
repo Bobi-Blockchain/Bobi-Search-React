@@ -433,24 +433,33 @@ export default function App() {
                   title="Integrated Terminal"
                 ></iframe>
               </div>
-
-              <div className="buttons">
-                <button
-                  onClick={() =>
-                    (window.location.href = "mailto:build@bobi.io")
-                  }
-                >
-                  Buy In
-                </button>
-
-                <button
-                  onClick={() =>
-                    window.open("https://www.bobiblockchain.com", "_self")
-                  }
-                >
-                  Home
-                </button>
+              <div className="integrated-terminal bobi-block">
+                  <h4>Buy Bobi Block</h4>
+                  <p>🧊 Bobi BLOCK is a limited-edition collectible cube—only 21 million will ever exist. Each features bold BOBI designs and a unique QR code linking to its digital identity and authenticity. Designed for display or play, it blends art, interactivity, and purpose in a compact, twistable form. Own a piece of the story—once they’re gone, they’re gone. Each block holds megabytes of data represented on the QR code.</p>
+                  <button><a href="https://buy.stripe.com/eVa2a0fVVdMecdq5kk">Buy</a></button>
               </div>
+              <div className="integrated-terminal coming-soon"><h5>Bobi mail coming soon...</h5></div>
+              <div className="integrated-terminal">
+                <iframe
+                  src="https://get.unstoppabledomains.com/bobi/"
+                  title="Integrated Terminal"
+                ></iframe>
+              </div>
+            </div>
+            <div className="buttons">
+              <button
+                onClick={() => (window.location.href = "mailto:build@bobi.io")}
+              >
+                Buy In
+              </button>
+
+              <button
+                onClick={() =>
+                  window.open("https://www.bobiblockchain.com", "_self")
+                }
+              >
+                Home
+              </button>
             </div>
           </div>
         </div>
