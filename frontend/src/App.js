@@ -191,39 +191,72 @@ export default function App() {
           />
 
           <div className="search-wrap">
-            <div className="search-bar">
-              <Wallet
-                provider={provider}
-                open={open}
-                isConnected={isConnected}
-                address={address}
-              />
-
-              <input
-                type="text"
-                value={query}
-                onChange={updateQuery}
-                placeholder="Just start typing"
-                onKeyDown={handleKeyPress}
-              />
-
-              <button onClick={handleSearch} className="ico">
-                <svg
-                  width="23"
-                  height="23"
-                  viewBox="0 0 23 23"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+            <div style={{display: "flex", flexDirection: "row", gap: "5rem"}}> 
+              <div className="buttons">
+                <button style={{width: "120px"}}
+                  onClick={() => (window.location.href = "mailto:build@bobi.io")}
                 >
-                  <path
-                    d="M18.5304 17.4698C18.2375 17.1769 17.7626 17.1769 17.4697 17.4698C17.1768 17.7626 17.1768 18.2375 17.4697 18.5304L18.5304 17.4698ZM21.4696 22.5304C21.7625 22.8233 22.2374 22.8233 22.5303 22.5304C22.8232 22.2375 22.8232 21.7626 22.5303 21.4697L21.4696 22.5304ZM17.4697 18.5304L21.4696 22.5304L22.5303 21.4697L18.5304 17.4698L17.4697 18.5304ZM10 18.25C5.44365 18.25 1.75 14.5563 1.75 10H0.25C0.25 15.3848 4.61522 19.75 10 19.75V18.25ZM18.25 10C18.25 14.5563 14.5563 18.25 10 18.25V19.75C15.3848 19.75 19.75 15.3848 19.75 10H18.25ZM10 1.75C14.5563 1.75 18.25 5.44365 18.25 10H19.75C19.75 4.61522 15.3848 0.25 10 0.25V1.75ZM10 0.25C4.61522 0.25 0.25 4.61522 0.25 10H1.75C1.75 5.44365 5.44365 1.75 10 1.75V0.25Z"
-                    fill="white"
-                  />
-                </svg>
-              </button>
-            </div>
+                  Buy In
+                </button>
 
+                <button
+                  onClick={() =>
+                    window.open("https://www.bobiblockchain.com", "_self")
+                  }
+                >
+                  Home
+                </button>
+              </div>
+              
+              <div className="search-bar">
+                <Wallet
+                  provider={provider}
+                  open={open}
+                  isConnected={isConnected}
+                  address={address}
+                />
+
+                <input
+                  type="text"
+                  value={query}
+                  onChange={updateQuery}
+                  placeholder="Just start typing"
+                  onKeyDown={handleKeyPress}
+                />
+
+                <button onClick={handleSearch} className="ico">
+                  <svg
+                    width="23"
+                    height="23"
+                    viewBox="0 0 23 23"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M18.5304 17.4698C18.2375 17.1769 17.7626 17.1769 17.4697 17.4698C17.1768 17.7626 17.1768 18.2375 17.4697 18.5304L18.5304 17.4698ZM21.4696 22.5304C21.7625 22.8233 22.2374 22.8233 22.5303 22.5304C22.8232 22.2375 22.8232 21.7626 22.5303 21.4697L21.4696 22.5304ZM17.4697 18.5304L21.4696 22.5304L22.5303 21.4697L18.5304 17.4698L17.4697 18.5304ZM10 18.25C5.44365 18.25 1.75 14.5563 1.75 10H0.25C0.25 15.3848 4.61522 19.75 10 19.75V18.25ZM18.25 10C18.25 14.5563 14.5563 18.25 10 18.25V19.75C15.3848 19.75 19.75 15.3848 19.75 10H18.25ZM10 1.75C14.5563 1.75 18.25 5.44365 18.25 10H19.75C19.75 4.61522 15.3848 0.25 10 0.25V1.75ZM10 0.25C4.61522 0.25 0.25 4.61522 0.25 10H1.75C1.75 5.44365 5.44365 1.75 10 1.75V0.25Z"
+                      fill="white"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            
+                
             <div className="widgets-wrapper">
+
+              <div className="integrated-terminal">
+                <iframe
+                  src="https://get.unstoppabledomains.com/bobi/"
+                  title="Integrated Terminal"
+                ></iframe>
+              </div>
+              <div className="integrated-terminal bobi-block">
+                  <img src="/bobi-cube.jpg" alt="bobi-cube" />
+                  <h4>Buy Bobi Block</h4>
+                  <p>🧊 Bobi BLOCK is a limited-edition collectible cube—only 21 million will ever exist. Each features bold BOBI designs and a unique QR code linking to its digital identity and authenticity. Own a piece of the story—once they’re gone, they’re gone. Each block holds megabytes of data represented on the QR code.</p>
+                  <button><a href="https://buy.stripe.com/eVa2a0fVVdMecdq5kk">Buy</a></button>
+              </div>
+
               <div className="integrated-terminal chatbot-terminal">
                 <img src="/bobigpt.jpg" alt="BoBi GPT" />
                 <Chatbot />
@@ -433,34 +466,16 @@ export default function App() {
                   title="Integrated Terminal"
                 ></iframe>
               </div>
-              <div className="integrated-terminal bobi-block">
-                  <h4>Buy Bobi Block</h4>
-                  <p>🧊 Bobi BLOCK is a limited-edition collectible cube—only 21 million will ever exist. Each features bold BOBI designs and a unique QR code linking to its digital identity and authenticity. Designed for display or play, it blends art, interactivity, and purpose in a compact, twistable form. Own a piece of the story—once they’re gone, they’re gone. Each block holds megabytes of data represented on the QR code.</p>
-                  <button><a href="https://buy.stripe.com/eVa2a0fVVdMecdq5kk">Buy</a></button>
-              </div>
-              <div className="integrated-terminal coming-soon"><h5>Bobi mail coming soon...</h5></div>
-              <div className="integrated-terminal">
-                <iframe
-                  src="https://get.unstoppabledomains.com/bobi/"
-                  title="Integrated Terminal"
-                ></iframe>
-              </div>
-            </div>
-            <div className="buttons">
-              <button
-                onClick={() => (window.location.href = "mailto:build@bobi.io")}
-              >
-                Buy In
-              </button>
 
-              <button
-                onClick={() =>
-                  window.open("https://www.bobiblockchain.com", "_self")
-                }
-              >
-                Home
-              </button>
+
+              <div className="integrated-terminal coming-soon">
+              <img src="/mail.jpg" alt="mail" />
+              <h5>bmail - Bobi mail coming soon...</h5>
+              </div>
+
+
             </div>
+            
           </div>
         </div>
       </main>

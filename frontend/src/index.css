@@ -423,13 +423,23 @@ body.dark .top .set.active .more {
     position: relative;
 }
 .coming-soon{
-    background: linear-gradient(135deg, #c9f2ff, #fdceff) !important;
+    background: transparent !important;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+.coming-soon img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
 .coming-soon h5{
     font-size: 1.5rem;
+    color: var(--secoundary);
     font-weight: 600;
 }
 @media (max-width: 1024px) {
@@ -818,27 +828,40 @@ footer {
     grid-template-columns: 1fr auto;
 }
 .bobi-block{
+    background: transparent !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
     padding: 20px 10px;
-    background-color: #f4f4f4 !important;
-
+    background-size: cover;
+    position: relative;
+}
+.bobi-block img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.7);
 }
 .bobi-block h4{
+    color: var(--secoundary);
     font-size: 1.5rem;
     font-weight: 600;
 }
 .bobi-block p{
-    font-size: 1rem;
-    color: var(--grey);
+    font-size: 1.1rem;
+    text-align: center;
+    color: var(--secoundary);
 }
 .bobi-block button{
     background: #3555c9;
     padding: 10px 20px;
     border-radius: 10px;
+    cursor: pointer;
 }
 .bobi-block button a{
     color: white;
