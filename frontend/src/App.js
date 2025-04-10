@@ -473,7 +473,7 @@ export default function App() {
 
               <div className="integrated-terminal coming-soon">
                 <img src="/mail.jpg" alt="mail" />
-                <h5>bmail <hr /> bobi mail coming soon...</h5>
+                <h5>bmail <hr /> bobi mail coming soon</h5>
               </div>
             </div>
           </div>

@@ -857,11 +857,11 @@ footer {
 }
 .bobi-block h4{
     color: var(--secoundary);
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: 600;
 }
 .bobi-block p{
-    font-size: 1rem;
+    font-size: 0.7rem;
     text-align: center;
     color: var(--secoundary);
 }
