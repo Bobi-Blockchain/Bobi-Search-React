@@ -651,7 +651,11 @@ body.dark .top .set.active .more {
         max-width: 450px;
         grid-template-columns: 1fr;
     }
+    .buttons{
+        margin-bottom: 1rem;
+    }
 }
+
 .unstyled-link {
     all: unset;
     display: block;
