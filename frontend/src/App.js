@@ -190,24 +190,22 @@ export default function App() {
             setIsDarkMode={setIsDarkMode}
           />
 
-          <div className="search-wrap">
-            <div style={{display: "flex", flexDirection: "row", gap: "5rem"}}> 
-              <div className="buttons">
-                <button style={{width: "120px"}}
-                  onClick={() => (window.location.href = "mailto:build@bobi.io")}
-                >
-                  Buy In
-                </button>
+          <div className="buttons">
+            <button
+              onClick={() => (window.location.href = "mailto:build@bobi.io")}
+            >
+              Buy In
+            </button>
 
-                <button
-                  onClick={() =>
-                    window.open("https://www.bobiblockchain.com", "_self")
-                  }
-                >
-                  Home
-                </button>
-              </div>
-              
+            <button
+              onClick={() =>
+                window.open("https://www.bobiblockchain.com", "_self")
+              }
+            >
+              Home
+            </button>
+          </div>
+          <div className="search-wrap">
               <div className="search-bar">
                 <Wallet
                   provider={provider}
@@ -239,11 +237,8 @@ export default function App() {
                   </svg>
                 </button>
               </div>
-            </div>
-            
-                
-            <div className="widgets-wrapper">
 
+            <div className="widgets-wrapper">
               <div className="integrated-terminal">
                 <iframe
                   src="https://get.unstoppabledomains.com/bobi/"
@@ -251,10 +246,19 @@ export default function App() {
                 ></iframe>
               </div>
               <div className="integrated-terminal bobi-block">
-                  <img src="/bobi-cube.jpg" alt="bobi-cube" />
-                  <h4>Buy Bobi Block</h4>
-                  <p>🧊 Bobi BLOCK is a limited-edition collectible cube—only 21 million will ever exist. Each features bold BOBI designs and a unique QR code linking to its digital identity and authenticity. Own a piece of the story—once they’re gone, they’re gone. Each block holds megabytes of data represented on the QR code.</p>
-                  <button><a href="https://buy.stripe.com/eVa2a0fVVdMecdq5kk">Buy</a></button>
+                <img src="/bobi-cube.jpg" alt="bobi-cube" />
+                <h4>Buy Bobi Block</h4>
+                <p>
+                  🧊 Bobi BLOCK is a limited-edition collectible cube—only 21
+                  million will ever exist. Each features bold BOBI designs and a
+                  unique QR code linking to its digital identity and
+                  authenticity. Own a piece of the story—once they’re gone,
+                  they’re gone. Each block holds megabytes of data represented
+                  on the QR code.
+                </p>
+                <button>
+                  <a href="https://buy.stripe.com/eVa2a0fVVdMecdq5kk">Buy</a>
+                </button>
               </div>
 
               <div className="integrated-terminal chatbot-terminal">
@@ -467,15 +471,11 @@ export default function App() {
                 ></iframe>
               </div>
 
-
               <div className="integrated-terminal coming-soon">
-              <img src="/mail.jpg" alt="mail" />
-              <h5>bmail - Bobi mail coming soon...</h5>
+                <img src="/mail.jpg" alt="mail" />
+                <h5>Bmail <hr /> coming soon...</h5>
               </div>
-
-
             </div>
-            
           </div>
         </div>
       </main>

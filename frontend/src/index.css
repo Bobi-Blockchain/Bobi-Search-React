@@ -402,10 +402,13 @@ button.ico {
 .buttons {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 1rem;
+    margin-bottom: -3rem;
 }
-
+.buttons button{
+    padding: 0px 20px;
+    height: 40px;
+}
 .buttons button:nth-child(2) {
     border: var(--border);
     background: none;
@@ -441,6 +444,7 @@ body.dark .top .set.active .more {
     font-size: 1.5rem;
     color: var(--secoundary);
     font-weight: 600;
+    text-align: center;
 }
 @media (max-width: 1024px) {
     .container {
@@ -849,11 +853,11 @@ footer {
 }
 .bobi-block h4{
     color: var(--secoundary);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
 }
 .bobi-block p{
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-align: center;
     color: var(--secoundary);
 }
