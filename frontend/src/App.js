@@ -192,7 +192,7 @@ export default function App() {
 
           <div className="buttons">
             <button
-              onClick={() => (window.location.href = "mailto:build@bobi.io")}
+              onClick={() => (window.location.href = "https://get.unstoppabledomains.com/bobi")}
             >
               Buy In
             </button>
