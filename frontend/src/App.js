@@ -247,9 +247,9 @@ export default function App() {
               </div>
               <div className="integrated-terminal bobi-block">
                 <img src="/bobi-cube.jpg" alt="bobi-cube" />
-                <h4>Buy Bobi Block</h4>
+                <h4>Buy bobi BLOCK</h4>
                 <p>
-                  🧊 Bobi BLOCK is a limited-edition collectible cube—only 21
+                  🧊 bobi BLOCK is a limited-edition collectible cube—only 21
                   million will ever exist. Each features bold BOBI designs and a
                   unique QR code linking to its digital identity and
                   authenticity. Own a piece of the story—once they’re gone,
